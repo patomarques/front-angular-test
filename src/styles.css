@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --color-black: #000000;
+    --color-gray: #d2d2d2;
+    --color-darkgray: #939393;
+    --color-lightgray: #f2f2f2;
+    --color-white: #ffffff;
+    --color-purple: #ac53f2;
+    --color-brownish-grey: #5c5c5c;
+
+    --font-raleway: 'Raleway', sans-serif;
+}
+
+html,
+body{
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+    font-family: var(--font-raleway);
+}
+
+body{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.italic{
+    font-style: italic !important;
+}
+
+.bold{
+    font-weight: 700 !important;
+}
+
+.c-purple{
+    color: var(--color-purple);
+}
+
+.ff-raleway{
+
+}
+
+.fw-regular{
+    font-weight: 400;
+}
