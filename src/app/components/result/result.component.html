@@ -1,107 +1,21 @@
-<div class="container">
+<div class="container result-header">
   <div class="row">
     <div class="col-xs-12 col-sm-4">
       <a href="/" class="logo-link">Github <span class="italic font-monaco">Search</span></a>
     </div>
     <div class="col-xs-12 col-sm-8">
-      <div class="form-group">
-        <input [formControl]="findControl" type="text" class="form-control mr-sm-2" placeholder="Github username">
-        <!--<input type="text" name="search_field" class="form-control" placeholder="">
-        <button class="btn btn-primary">Pesquisar</button>-->
+      <div class="input-group input-group-search">
+        <!--<input [formControl]="findControl" type="text" class="form-control mr-sm-2" placeholder="Github username">-->
+        <input type="text" name="search_field" class="form-control" placeholder="Github name">
+        <div class="input-group-append">
+          <button class="btn btn-purple input-group-text">Pesquisar</button>
+        </div>
+
       </div>
     </div>
   </div>
 </div>
-<div class="container perfil-info">
-  <div class="row">
-    <div class="col-12 col-sm-12 col-md-4 content-left">
-      <div class="box-perfil-img square">
-        <img src="https://avatars3.githubusercontent.com/u/1047363?s=460&v=4" alt="">
-      </div>
 
-      <h2 class="title-user">Darth Vader</h2>
-      <h3 class="subtitle-user">anakinskywalker</h3>
+<app-user *ngIf="user" [user]="user"></app-user>
 
-      <ul class="list-unstyled list-user-info">
-        <li>
-          <!--<svg-icon src="assets/img/icon/collaboration.svg" [svgStyle]="{ 'width.px':24 }"></svg-icon>-->
-          <span class="legend-info">Corporate Name</span>
-        </li>
-        <li>
-          <!--<svg-icon src="assets/img/icon/placeholder.svg" [svgStyle]="{ 'width.px':24 }"></svg-icon>-->
-          <span class="legend-info">Developer</span>
-        </li>
-        <li>
-          <!--<svg-icon src="assets/img/icon/star.svg" [svgStyle]="{ 'width.px':24 }"></svg-icon>-->
-          <span class="legend-info">Rating</span>
-        </li>
-        <li>
-          <!--<svg-icon src="assets/img/icon/box.svg" [svgStyle]="{ 'width.px':24 }"></svg-icon>-->
-          <span class="legend-info">Repositories Qty</span>
-        </li>
-        <li>
-          <!--<svg-icon src="assets/img/icon/group.svg" [svgStyle]="{ 'width.px':24 }"></svg-icon>-->
-          <span class="legend-info">People Conections</span>
-        </li>
-      </ul>
-
-    </div>
-    <div class="col-12 col-sm-12 col-md-8 content-right">
-
-      <div class="content-repositories">
-        <app-user *ngIf="user" [user]="user"></app-user>
-        <app-not-found *ngIf="error"></app-not-found>
-        <p class="c-purple ff-raleway fw-regular" *ngIf="user">User not found :(</p>
-        <!--<ul class="list-repositories list-unstyled">
-          <li>
-            <h4 class="title-repository">Death Star</h4>
-            <p class="subtitle-repo">The most powerfull weapons of universe</p>
-
-            <div class="ratting">
-              &lt;!&ndash;<svg-icon src="assets/img/icon/star.svg" [svgStyle]="{ 'width.px':25.5 }"></svg-icon>&ndash;&gt;
-              <span class="legend">4200</span>
-            </div>
-
-          </li>
-          <li>
-            <h4 class="title-repository">Vader’s Armour</h4>
-            <p class="subtitle-repo">A black suit with scary helmet. Oxygen tank included.</p>
-
-            <div class="ratting">
-              &lt;!&ndash;<svg-icon src="assets/img/icon/star.svg" [svgStyle]="{ 'width.px':25.5 }"></svg-icon>&ndash;&gt;
-              <span class="legend">954</span>
-            </div>
-          </li>
-          <li>
-            <h4 class="title-repository">How to kill Obi-Wan</h4>
-            <p class="subtitle-repo">I need more suggestions</p>
-
-            <div class="ratting">
-              &lt;!&ndash;<svg-icon src="assets/img/icon/star.svg" [svgStyle]="{ 'width.px':25.5 }"></svg-icon>&ndash;&gt;
-              <span class="legend">0</span>
-            </div>
-          </li>
-          <li>
-            <h4 class="title-repository">Dual-phase lightsaber</h4>
-            <p class="subtitle-repo">The lightsaber you do not want to see.</p>
-
-            <div class="ratting">
-              &lt;!&ndash;<svg-icon src="assets/img/icon/star.svg" [svgStyle]="{ 'width.px':25.5 }"></svg-icon>&ndash;&gt;
-              <span class="legend">23</span>
-            </div>
-          </li>
-          <li>
-            <h4 class="title-repository">TIE Advanced x1</h4>
-            <p class="subtitle-repo">The right vehicle to hunt rebels.</p>
-
-            <div class="ratting">
-              &lt;!&ndash;<svg-icon src="assets/img/icon/star.svg" [svgStyle]="{ 'width.px':25.5 }"></svg-icon>&ndash;&gt;
-              <span class="legend">83</span>
-            </div>
-          </li>
-        </ul>-->
-      </div>
-
-    </div>
-  </div>
-</div>
+<app-not-found *ngIf="!user"></app-not-found>
