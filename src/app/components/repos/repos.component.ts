@@ -11,6 +11,7 @@ export class ReposComponent implements OnInit {
   constructor() { }
 
   @Input() repos: Repos;
+  @Input() hasRepos: boolean;
 
   ngOnInit() {
   }
