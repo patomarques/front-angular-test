@@ -1,0 +1,27 @@
+.list-repositories li{
+    margin-bottom: 25px;
+}
+
+.ratting{
+    position: relative;
+}
+
+.subtitle-repo{
+    margin: 0 0 10px;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.ratting .legend{
+    /*position: absolute;*/
+    top: 0;
+    margin: 0 0 0 10px;
+    font-size: 20px;
+}
+
+.title-repository{
+    margin: 0;
+    font-size: 35px !important;
+    color: var(--color-purple);
+    font-weight: 400;
+}

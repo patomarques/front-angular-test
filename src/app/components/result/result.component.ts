@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { GithubService } from '../../services/github.service';
 import { User } from '../../models/user.model';
 import { switchMap, debounceTime, catchError } from 'rxjs/operators';
-import {EmptyObservable} from 'rxjs/observable/EmptyObservable';
+import { Repos } from '../../models/repos.model';
 
 @Component({
   selector: 'app-result',
@@ -14,10 +14,12 @@ export class ResultComponent implements OnInit {
 
   public username: string;
   public hasUser: boolean = false;
+  public hasRepos: boolean = false;
 
   findControl = new FormControl();
 
   @Input() user: User = null;
+  @Input() repos: Repos = null;
   @Input() error: boolean = false;
 
   constructor(private githubService: GithubService) {
@@ -33,12 +35,12 @@ export class ResultComponent implements OnInit {
         switchMap(value =>
           this.githubService.getUser(value).pipe(
             catchError(err => {
-              this.user = [];
+              this.user = null;
               this.error = true;
-              return new EmptyObservable();
+              return null;
             })))
       ).subscribe(user => {
-      this.user = user;
+      /*this.user = user;*/
       this.error = false;
     });
   }
@@ -59,12 +61,21 @@ export class ResultComponent implements OnInit {
           console.log(user);
           this.user = user;
           this.hasUser = true;
+        } else {
+          this.user = null;
+          this.hasUser = false;
         }
       });
 
       this.githubService.getUserRepos( this.username ).subscribe(repos => {
         console.log(repos);
-        this.user.repos = repos;
+        if (typeof repos !== 'undefined') {
+          this.repos = repos;
+          this.hasRepos = true;
+        } else {
+          this.hasRepos = false;
+          this.repos = null;
+        }
       });
     }
   }

@@ -7,5 +7,4 @@ export class User {
     public_repos: string;
     following: string;
     followers: string;
-    repos: any[];
 }

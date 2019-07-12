@@ -1,0 +1,19 @@
+<div class="content-repositories">
+
+  <ul class="list-repositories list-unstyled" *ngIf="!hasRepos">
+
+    <li *ngFor="let repo of repos; let i = index;">
+      <a href="{{ repo.url }}" class="title-repository" target="_blank">{{ repo.name }}</a>
+      <p class="subtitle-repo">{{ repo.description }}</p>
+
+      <div class="ratting">
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+        <span class="legend">{{ repo.stargazers_count }}</span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="alert alert-info" *ngIf="hasRepos">
+    <p>No repositories found!</p>
+  </div>
+</div>

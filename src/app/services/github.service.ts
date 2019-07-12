@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user.model';
+import { Repos } from '../models/repos.model';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -15,10 +16,10 @@ export class GithubService {
       return this.http.get<User>(url);
   }
 
-  getUserRepos(name: string): Observable<User> {
+  getUserRepos(name: string): Observable<Repos> {
     this.updateProfile(name);
     const url = `https://api.github.com/users/${name}/repos`;
-    return this.http.get<User>(url);
+    return this.http.get<Repos>(url);
   }
 
   updateProfile(username: string) {
