@@ -30,7 +30,9 @@ import { routing } from './app.routing';
     FormsModule,
     routing
   ],
-  providers: [GithubService],
+  providers: [
+    GithubService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

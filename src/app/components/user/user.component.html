@@ -1,3 +1,58 @@
-<p>
-  user works!
-</p>
+<div class="container perfil-info" >
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-4 content-left">
+      <div class="box-perfil-img square">
+        <img src="{{ user.avatar_url }}" alt="">
+      </div>
+
+      <h2 class="title-user">{{ user.name }}</h2>
+      <h3 class="subtitle-user">{{ user.login }}</h3>
+
+      <ul class="list-unstyled list-user-info">
+        <li>
+          <i class="fa fa-object-group" aria-hidden="true"></i>
+          <span class="legend-info">{{ user.bio }}</span>
+        </li>
+        <li>
+          <i class="fa fa-eercast" aria-hidden="true"></i>
+          <span class="legend-info">{{ user.location }}</span>
+        </li>
+        <li>
+          <i class="fa fa-cube" aria-hidden="true"></i>
+          <span class="legend-info">{{ user.public_repos }} (projects)</span>
+        </li>
+        <li>
+          <i class="fa fa-usb" aria-hidden="true"></i>
+          <span class="legend-info">{{ user.following }} (following)</span>
+        </li>
+        <li>
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <span class="legend-info">{{ user.followers }} (followers)</span>
+        </li>
+
+      </ul>
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-8 content-right">
+
+      <div class="content-repositories">
+
+        <ul class="list-repositories list-unstyled">
+
+          <li *ngFor="let repo of user.repos; let i = index">
+            <a href="{{ repo.url }}" class="title-repository" target="_blank">{{ repo.name }}</a>
+            <p class="subtitle-repo">{{ repo.description }}</p>
+
+            <div class="ratting">
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+              <span class="legend">{{ repo.stargazers_count }}</span>
+            </div>
+
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,18 +1,18 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
 
   constructor() { }
-    @Input()
-    user: User;
-    ngOnInit() {
-    }
+
+  @Input() user: User;
+
+  ngOnInit() {
+  }
 
 }

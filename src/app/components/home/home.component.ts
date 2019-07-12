@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -8,20 +9,27 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
-    user: any = {
+    @Input() user: any = {
         name: null
     };
 
-    onSubmit(form) {
-        console.log(form.value);
+    @Output() userEvent = new EventEmitter();
 
+    onSubmit(form) {
         this.http.get('https://api.github.com/users/' + form.value.username)
-            .subscribe(dados => console.log(dados));
-            /*.catch(err => Observable.throw(err));*/
+            .subscribe(dados => {
+                console.log(dados);
+            },
+            (error: any) => alert('erro')
+            );
         form.form.reset();
+
+      this.userEvent.emit(this.user.name);
+
+      this.router.navigate(['/result']);
     }
 
-    constructor(protected http: HttpClient) { }
+    constructor(protected http: HttpClient, private router: Router) { }
 
     ngOnInit() {
     }

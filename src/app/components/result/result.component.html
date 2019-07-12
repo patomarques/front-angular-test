@@ -6,9 +6,11 @@
     <div class="col-xs-12 col-sm-8">
       <div class="input-group input-group-search">
         <!--<input [formControl]="findControl" type="text" class="form-control mr-sm-2" placeholder="Github username">-->
-        <input type="text" name="search_field" class="form-control" placeholder="Profile name">
+        <input type="text" name="username" class="form-control" placeholder="Profile name" [(ngModel)]="username">
         <div class="input-group-append">
-          <button class="btn btn-purple input-group-text">Pesquisar</button>
+          <button class="btn btn-purple input-group-text" (click)="findProfile()">
+            <i class="fa fa-search"></i>
+          </button>
         </div>
 
       </div>
@@ -16,6 +18,6 @@
   </div>
 </div>
 
-<app-user *ngIf="user" [user]="user"></app-user>
+<app-user *ngIf="hasUser" [user]="user"></app-user>
 
-<app-not-found *ngIf="!user"></app-not-found>
+<app-not-found *ngIf="!hasUser"></app-not-found>

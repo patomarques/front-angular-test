@@ -1,0 +1,109 @@
+.perfil-info{
+    margin-top: 10px;
+}
+
+.box-perfil-img{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding-right: 40px;
+}
+
+.box-perfil-img img{
+    width: 100%;
+    height: 100%;
+}
+
+/* Result Page - Layout Contents*/
+/*.content-result .content-full{
+    display: -webkit-flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    -webkit-flex: 1 1 100%;
+    flex: 1 1 100%;
+    -webkit-order: 1;
+    order: 1;
+}*/
+
+/* Titles */
+.title-user{
+    font-size: 35px;
+    color: var(--color-black);
+    margin: 10px 0 5px;
+    font-weight: 300;
+}
+
+.title-repository{
+    margin: 0;
+    font-size: 35px !important;
+    color: var(--color-purple);
+    font-weight: 400;
+}
+
+.subtitle-user{
+    color: var(--color-brownish-grey);
+    font-size: 20px;
+    text-transform: lowercase;
+    margin: 0 0 20px;
+    font-weight: 300;
+}
+/*
+.square{
+    width: 100%;
+}
+
+.square:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}*/
+
+.box-img{
+    position: relative;
+}
+
+.list-unstyled{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list-user-info{
+
+}
+
+.list-user-info li{
+    padding: 5px 0;
+    position: relative;
+}
+
+.list-user-info li .legend-info{
+   /* position: absolute;*/
+    margin: 5px 6px 8px 10px;
+    top: 0;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--color-brownish-grey);
+}
+
+.list-repositories li{
+    margin-bottom: 25px;
+}
+
+.ratting{
+    position: relative;
+}
+
+.subtitle-repo{
+    margin: 0 0 10px;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.ratting .legend{
+    /*position: absolute;*/
+    top: 0;
+    margin: 0 0 0 10px;
+    font-size: 20px;
+}

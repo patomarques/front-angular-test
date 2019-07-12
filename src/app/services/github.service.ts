@@ -1,15 +1,28 @@
-import {Injectable} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user.model';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class GithubService {
 
-    constructor(private http: HttpClient) { }
-    getUser(name: string): Observable<User> {
-        const url = `https://api.github.com/users/${name}`;
-        return this.http.get<User>(url);
-    }
+  private username: string;
+
+  constructor(private http: HttpClient) { }
+  getUser(name: string): Observable<User> {
+      this.updateProfile(name);
+      const url = `https://api.github.com/users/${name}`;
+      return this.http.get<User>(url);
+  }
+
+  getUserRepos(name: string): Observable<User> {
+    this.updateProfile(name);
+    const url = `https://api.github.com/users/${name}/repos`;
+    return this.http.get<User>(url);
+  }
+
+  updateProfile(username: string) {
+    this.username = username;
+  }
 
 }

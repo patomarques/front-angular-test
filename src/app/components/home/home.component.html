@@ -1,6 +1,6 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="content-search">
   <div class="box-search-label v-align">
-    <label for="search" class="label-search">
+    <label class="label-search">
       <span class="bold">Github</span>
       <span class="italic">Search</span>
     </label>
@@ -8,7 +8,7 @@
     <div class="box-search-input">
       <input type="text" class="input-lg input-search" name="username" id="username" [ngModel]="user.name">
       <button type="submit" class="btn btn-search btn-lg">
-        Icone
+        <i class="fa fa-search" aria-hidden="true"></i>
       </button>
     </div>
   </div>
